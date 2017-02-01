@@ -42,6 +42,7 @@ OBJ = \
 	DifShell.o	\
 	DifBufferBase.o	\
 	DifBuffer.o	\
+	MMpump.o \
 	Leakage.o	\
 	VectorTable.o	\
 	MarkovRateTable.o	\
