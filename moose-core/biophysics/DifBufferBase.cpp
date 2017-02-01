@@ -193,9 +193,9 @@ const Cinfo * DifBufferBase::initCinfo()
     &innerDif,
     &outerDif,
     //
-    reactionOut(),
-    innerDifSourceOut(),
-    outerDifSourceOut(),
+    //reactionOut(),
+    //innerDifSourceOut(),
+    //outerDifSourceOut(),
     //////////////////////////////////////////////////////////////////
     // DestFinfo definitions
     //////////////////////////////////////////////////////////////////

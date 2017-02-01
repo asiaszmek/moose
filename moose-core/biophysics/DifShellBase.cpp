@@ -180,9 +180,6 @@ const Cinfo* DifShellBase::initCinfo()
     //////////////////////////////////////////////////////////////////
     &proc,
     &buffer,
-    concentrationOut(),
-    innerDifSourceOut(),
-    outerDifSourceOut(),
     &innerDif,
     &outerDif,
     //////////////////////////////////////////////////////////////////
