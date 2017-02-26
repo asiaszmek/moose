@@ -75,7 +75,7 @@ const Cinfo * MMPump::initCinfo()
     "Author", "Subhasis Ray (ported from GENESIS2)",
     "Description", "Models Michaelis-Menten pump. It is coupled with a DifShell.",
   };
-  static ZeroSizeDinfo<int> dinfo;
+  static Dinfo<MMPump> dinfo;
   static Cinfo MMPumpCinfo(
 			      "MMPump",
 			      Neutral::initCinfo(),
@@ -96,6 +96,8 @@ static const Cinfo * MMpumpCinfo = MMPump::initCinfo();
 ////////////////////////////////////////////////////////////////////////////////
 
 MMPump::MMPump()
+  : Vmax_(0.0),
+    Kd_(0.0)
 { ; }
 
 
