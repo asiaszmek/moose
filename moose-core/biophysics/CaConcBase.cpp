@@ -265,7 +265,7 @@ void CaConcBase::updateDimensions( const Eref& e )
     vol -= PI * coreRadius * coreRadius * length_;
   }
   if (vol > 0.0)
-    double B = 1.0 / ( FaradayConst * vol );
+    B = 1.0 / ( FaradayConst * vol );
   vSetB( e, B );
 }
 
