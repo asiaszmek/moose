@@ -600,6 +600,7 @@ void HSolveActive::manageOutgoingMessages()
      */
     filter.clear();
     filter.push_back( "HHChannel" );
+    
     for ( unsigned int ica = 0; ica < caConcId_.size(); ++ica )
     {
         targets.clear();
@@ -614,9 +615,32 @@ void HSolveActive::manageOutgoingMessages()
 
         if ( nTargets )
             outCa_.push_back( ica );
+	
+	
     }
-}
+    filter.clear();
+    filter.push_back( "CaConc" );
+   
+    for ( unsigned int ik = 0; ik < channelId_.size(); ++ik )
+    {
+        targets.clear();
 
+        int nTargets = HSolveUtils::targets(
+                           channelId_[ ik ],
+                           "IkOut",
+                           targets,
+                           filter,
+                           false    // include = false. That is, use filter to exclude.
+                       );
+
+        if ( nTargets )
+            outIk_.push_back( ik );
+
+	
+    }
+    
+    
+}
 void HSolveActive::cleanup()
 {
 //	compartmentId_.clear();

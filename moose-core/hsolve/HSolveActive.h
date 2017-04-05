@@ -131,6 +131,7 @@ protected:
 		*   Tells you which compartments have external calcium-dependent
 		*   channels so that you can send out Calcium concentrations in only
 		*   those compartments. */
+    vector< unsigned int >    outIk_;	
 
 private:
     /**

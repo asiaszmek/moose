@@ -18,6 +18,7 @@
 #include "../biophysics/CompartmentBase.h"
 #include "../biophysics/Compartment.h"
 #include "../biophysics/CaConcBase.h"
+#include "../biophysics/ChanBase.h"
 #include "ZombieCaConc.h"
 using namespace moose;
 //~ #include "ZombieCompartment.h"
@@ -339,12 +340,22 @@ void HSolveActive::sendValues( ProcPtr info )
     vector< unsigned int >::iterator i;
 
     for ( i = outVm_.begin(); i != outVm_.end(); ++i )
-        moose::Compartment::VmOut()->send(
+        Compartment::VmOut()->send(
             //~ ZombieCompartment::VmOut()->send(
             compartmentId_[ *i ].eref(),
             V_[ *i ]
         );
+    
+    for (i = outIk_.begin(); i!=outIk_.end(); ++i){
+      //cout<<i<<"\n";
+       unsigned int comptIndex = chan2compt_[ *i ];
+       
+       assert( comptIndex < V_.size() );
 
+       ChanBase::IkOut()->send(channelId_[*i].eref(),
+			       (current_[ *i ].Ek - V_[ comptIndex ]) * current_[ *i ].Gk);
+       
+    }
     for ( i = outCa_.begin(); i != outCa_.end(); ++i )
         //~ CaConc::concOut()->send(
         CaConcBase::concOut()->send(
